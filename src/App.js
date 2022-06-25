@@ -22,8 +22,6 @@ function App() {
         <div className="todo">
           <div className="left">
           <input onChange={(e)=>{
-           
-            console.log(obj)
             setTodos(todos.filter(obj2=>{
               if(obj2.id===obj.id){
                 obj2.status=e.target.checked
@@ -36,7 +34,12 @@ function App() {
             <p>{obj.text}</p>
           </div>
           <div className="right">
-            <i className="fas fa-times"></i>
+            <i onClick={(e)=>{
+                todos.splice(todos.indexOf(obj), 1);
+                setTodos([...todos]);
+            }
+           } 
+            className="fas fa-times"></i>
           </div>
         </div>
     
