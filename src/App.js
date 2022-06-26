@@ -3,6 +3,15 @@ import { useState } from 'react';
 function App() {
   const [todo,setTodo] = useState('')
   const [todos,setTodos] = useState([])
+
+  function getDayName(dateStr, locale)
+{
+    var date = new Date(dateStr);
+    return date.toLocaleDateString(locale, { weekday: 'long' });        
+}
+
+var dateStr = Date();
+var day = getDayName(dateStr, 'en-US');
   return (
     <div className="app">
       <div className="mainHeading">
@@ -10,7 +19,7 @@ function App() {
       </div>
       <div className="subHeading">
         <br />
-        <h2>Whoop, it's Wednesday 🌝 ☕ </h2>
+        <h2>Whoop, it's {day} 🌝 ☕ </h2>
       </div>
       <div className="input">
         <input type="text" value={todo} onChange={(e)=>setTodo(e.target.value)} placeholder="🖊️ Add item..." />
@@ -43,7 +52,7 @@ function App() {
           </div>
         </div>
     
-            )
+            );
           })
         }
       </div>
